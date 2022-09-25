@@ -4,7 +4,7 @@ import List from './List';
 
 import React from 'react'
 
-const Lists = React.memo(({ todoData, setTodoData }) => {
+const Lists = React.memo(({ todoData, setTodoData, handleClick }) => {
   const handleEnd = (result) => {
     if (!result.destination) return;
     const newTodoData = todoData;
@@ -40,6 +40,7 @@ const Lists = React.memo(({ todoData, setTodoData }) => {
                         setTodoData={setTodoData}
                         provided={provided}
                         snapshot={snapshot}
+                        handleClick={handleClick}
                       />
                     )}
                   </Draggable>

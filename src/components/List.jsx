@@ -1,13 +1,8 @@
 import React from 'react'
 
 const List = React.memop(({
-  id, title, completed, todoData, setTodoData, provided, snapshot
+  id, title, completed, todoData, setTodoData, provided, snapshot, handleClick
 }) => {
-
-  const handleClick = (id) => {
-    let newTodoData = todoData.filter(data => data.id !== id);
-    setTodoData(newTodoData);
-  };
 
   const handleCompletedChange = (id) => {
     let newTodoData = todoData.map((data) => {
