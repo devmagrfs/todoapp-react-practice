@@ -3,18 +3,21 @@ import './App.css';
 import Form from './components/Form';
 import Lists from './components/List';
 
+const initialTodoData = localStorage.getItem('todoData') ? JSON.parse(localStorage.getItem('todoData')) : [];
+
 export default function App() {
-  const [todoData, setTodoData] = React.useState([]);
+  const [todoData, setTodoData] = React.useState(initialTodoData);
   const [value, setValue] = React.useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     let newTodo = {
       id: Date.now(),
       title: value,
       completed: false,
     };
     setTodoData(prev => [...prev, newTodo]);
+    localStorage.setItem('todoData', JSON.stringify([...todoData, newTodo]));
   };
 
   const handleClick = React.useCallback((id) => {
@@ -25,6 +28,7 @@ export default function App() {
 
   const handleRemoveClick = () => {
     setTodoData([]);
+    localStorage.setItem('todoData', JSON.stringify([]));
   };
 
   return (

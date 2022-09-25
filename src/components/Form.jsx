@@ -3,7 +3,6 @@ import React from 'react'
 export default function Form({ value, setValue, handleSubmit }) {
   const handleChange = (e) => {
     setValue(e.target.value);
-    console.log(e);
   };
 
   return (
@@ -16,7 +15,8 @@ export default function Form({ value, setValue, handleSubmit }) {
         value={value}
         onChange={handleChange}>
       </input>
-      <button type="submit" className="p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-200">입력</button>
+      <input value="입력" type="submit"
+        className="p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-200" />
     </form>
   )
 }
