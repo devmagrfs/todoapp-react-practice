@@ -1,6 +1,6 @@
 import React from 'react'
 
-const List = ({
+const List = React.memop(({
   id, title, completed, todoData, setTodoData, provided, snapshot
 }) => {
 
@@ -45,6 +45,6 @@ const List = ({
       </div>
     </div>
   )
-}
+});
 
 export default List;
